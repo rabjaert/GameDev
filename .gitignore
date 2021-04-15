@@ -1,3 +1,4 @@
 .vs
 game/game.vcxproj
 game/x64/
+SDL2.dll
