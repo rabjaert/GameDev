@@ -18,10 +18,12 @@ public:
 	static SDL_Renderer *renderer;
 
 	inline bool isRunning() { return running; }
+	int fps;
 
 private:
 	bool running = false;
 	SDL_Window *window;
+
 };
 
 

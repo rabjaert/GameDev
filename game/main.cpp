@@ -15,13 +15,10 @@ int main(int argc, char* argv[]) {
 	float secondsloop = 0;
 	float sleep = 1000.0f / 240;
 	uint64_t timenow = SDL_GetPerformanceCounter();
-	int fps = 0;
 
 
 	while (game.isRunning()) {
 		
-		
-
 		uint64_t last = timenow;
 		do
 		{
@@ -37,13 +34,13 @@ int main(int argc, char* argv[]) {
 
 		if (secondsloop >= 1000.0f)
 		{
-			fps = (int)(1000.0f / delta) + 1; //TODO fix + 1
-			std::cout << "FPS: " << fps << std::endl;
+			game.fps = (int)(1000.0f / delta) + 1; //TODO fix + 1
+			std::cout << "FPS: " << game.fps << std::endl;
 			secondsloop = 0;
-		}
-
-		
+		}	
 	}
+
+	game.dispose();
 	
 	return 0;
 }

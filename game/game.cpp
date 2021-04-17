@@ -41,6 +41,7 @@ void Game::handleEvents()
                                 running = false;
                         }
                 }
+                
         }
 }
 
