@@ -1,6 +1,7 @@
 #ifndef GAME_H
 #define GAME
 
+#include <SDL.h>
 
 class Game {
 public:
@@ -8,13 +9,19 @@ public:
 	Game();
 	~Game();
 
-
 	void init(const char *title, int width, int height);
-	void update(float delta);
-	void render(float delta);
-
-	void init();
+	void handleEvents();
+	void update();
+	void render();
 	void dispose();
+
+	static SDL_Renderer *renderer;
+
+	inline bool isRunning() { return running; }
+
+private:
+	bool running = false;
+	SDL_Window *window;
 };
 
 

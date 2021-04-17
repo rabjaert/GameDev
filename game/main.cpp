@@ -1,27 +1,49 @@
-#include <stdio.h>
+#include <iostream>
 #include <SDL.h>
 
 
+#include "game.h"
 
 int main(int argc, char* argv[]) {
+	Game game;
 
-       
-        printf("Initializing SDL.\n");
+	game.init("spill", 1024, 768);
 
-        /* Initialize defaults, Video and Audio */
-        if ((SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) == -1)) {
-                printf("Could not initialize SDL: %s.\n", SDL_GetError());
-                exit(-1);
-        }
+	
+	float delta = 0;
+	const uint64_t frequency = SDL_GetPerformanceFrequency();
+	float secondsloop = 0;
+	float sleep = 1000.0f / 240;
+	uint64_t timenow = SDL_GetPerformanceCounter();
+	int fps = 0;
 
-        printf("SDL initialized.\n");
 
-        printf("Quiting SDL.\n");
+	while (game.isRunning()) {
+		
+		
 
-        /* Shutdown all subsystems */
-        SDL_Quit();
+		uint64_t last = timenow;
+		do
+		{
+			timenow = SDL_GetPerformanceCounter(); // bad?
+			delta = ((timenow - last) * 1000 / (float)frequency);
+		} while (delta < sleep); // wait for the target fps
+		// use sleep?
+		secondsloop += delta;
 
-        printf("Quiting....\n");
+		game.handleEvents();
+		game.update();
+		game.render();
 
-        exit(0); 
+		if (secondsloop >= 1000.0f)
+		{
+			fps = (int)(1000.0f / delta) + 1; //TODO fix + 1
+			std::cout << "FPS: " << fps << std::endl;
+			secondsloop = 0;
+		}
+
+		
+	}
+	
+	return 0;
 }
