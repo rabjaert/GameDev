@@ -5,6 +5,7 @@
 
 int main(int argc, char* argv[]) {
 
+       
         printf("Initializing SDL.\n");
 
         /* Initialize defaults, Video and Audio */
@@ -22,5 +23,5 @@ int main(int argc, char* argv[]) {
 
         printf("Quiting....\n");
 
-        exit(0);
+        exit(0); 
 }
