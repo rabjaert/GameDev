@@ -5,24 +5,24 @@
 
 class Game {
 public:
-	
+
 	Game();
 	~Game();
 
-	void init(const char *title, int width, int height);
+	void init(const char* title, int width, int height);
 	void handleEvents();
 	void update();
 	void render();
 	void dispose();
 
-	static SDL_Renderer *renderer;
+	static SDL_Renderer* renderer;
 
 	inline bool isRunning() { return running; }
 	int fps;
 
 private:
 	bool running = false;
-	SDL_Window *window;
+	SDL_Window* window;
 
 };
 

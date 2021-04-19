@@ -2,3 +2,6 @@
 game/game.vcxproj
 game/x64/
 SDL2.dll
+game/libpng16-16.dll
+game/SDL2_image.dll
+game/zlib1.dll

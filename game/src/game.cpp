@@ -1,8 +1,13 @@
 #include <iostream>
-#include "game.h"
+#include "header/game.h"
+//#include "header/TextureManager.h"
+#include "SDL_image.h"
+
+
 
 SDL_Renderer *Game::renderer = nullptr;
-
+SDL_Texture* swordman;
+SDL_Rect srcR, destR;
 
 Game::Game()
 {
@@ -27,7 +32,19 @@ void Game::init(const char* title, int width, int height)
 
         window = SDL_CreateWindow(title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, 0);
         renderer = SDL_CreateRenderer(window, 0, 0);
+        
+      
         running = true;
+
+        SDL_Surface* surface = IMG_Load("res/textures/character/character_spritesheet.png");
+        swordman = SDL_CreateTextureFromSurface(renderer, surface);
+        SDL_FreeSurface(surface);
+
+      
+
+
+
+
 
         std::cout << "SDL initialized" << std::endl;
 }
@@ -47,14 +64,23 @@ void Game::handleEvents()
 
 void Game::update()
 {
+    destR.h = 64;
+    destR.w = 64;
 
+    srcR.h = 30;
+    srcR.w = 15;
 }
 
 void Game::render()
 {
-        SDL_SetRenderDrawColor(renderer, 100, 149, 237, 255);
+  /*    SDL_SetRenderDrawColor(renderer, 100, 149, 237, 255);
+        
         SDL_RenderClear(renderer);
-        SDL_RenderPresent(renderer);
+        SDL_RenderPresent(renderer);*/
+
+    SDL_RenderClear(renderer);
+    SDL_RenderCopy(renderer, swordman, &srcR, &destR);
+    SDL_RenderPresent(renderer);
 }
 
 

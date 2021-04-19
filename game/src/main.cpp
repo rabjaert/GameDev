@@ -1,11 +1,11 @@
 #include <iostream>
 #include <SDL.h>
+#include "header/game.h"
 
-
-#include "game.h"
 
 int main(int argc, char* argv[]) {
 	Game game;
+	
 
 	game.init("spill", 1024, 768);
 
@@ -38,6 +38,8 @@ int main(int argc, char* argv[]) {
 			std::cout << "FPS: " << game.fps << std::endl;
 			secondsloop = 0;
 		}	
+		
+
 	}
 
 	game.dispose();
