@@ -1,15 +1,26 @@
-#ifndef TEXTURE_MANAGER_H
+#ifndef TEXTUREMANAGER_H
 #define TEXTUREMANAGER
-#include "game.h"
+
+#include <string>
+#include <iostream>
+#include <SDL.h>
+#include "SDL_image.h"
+
+
 
 class TextureManager {
+
 public:
+
+
 	static SDL_Texture* LoadTexture(const char* fileName, SDL_Renderer* rendrer);
 
-	//static TexturePath()
-
+	
+	
+	//static const char* GetImages(const char* folder, const char* image_name);
+		
+	
 
 };
 
-
-#endif TEXTURE_MANAGER_H
+#endif TEXTUREMANAGER_H

@@ -1,8 +1,8 @@
 #include "header/TextureManager.h"
-#include "SDL_image.h"
+
+
 
 SDL_Texture* TextureManager::LoadTexture(const char* file, SDL_Renderer* renderer)
-
 {
     SDL_Texture* texture = NULL;
     SDL_Surface* surface = IMG_Load(file);
@@ -11,4 +11,14 @@ SDL_Texture* TextureManager::LoadTexture(const char* file, SDL_Renderer* rendere
         SDL_FreeSurface(surface);
     }
     return texture;
-}
+};
+
+/*const char* TextureManager::GetImages(const char* folder, const char* image_name) {
+    
+    const char *satan = "res/textures/" + *folder + '/' + *image_name + '.png';
+    
+    
+    return satan;
+        
+};*/
+

@@ -2,8 +2,13 @@
 #define GAME
 
 #include <SDL.h>
+#include "SDL_image.h"
+
 
 class Game {
+
+	
+
 public:
 
 	Game();
@@ -19,6 +24,7 @@ public:
 
 	inline bool isRunning() { return running; }
 	int fps;
+	
 
 private:
 	bool running = false;
