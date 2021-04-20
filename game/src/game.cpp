@@ -46,6 +46,9 @@ void Game::handleEvents()
 {
 	SDL_Event event;
 	while (SDL_PollEvent(&event)) {
+		if (event.type == SDL_QUIT) {
+			running = false;
+		}
 		if (event.type == SDL_KEYDOWN) {
 			if (event.key.keysym.scancode == SDL_SCANCODE_ESCAPE) {
 				running = false;
