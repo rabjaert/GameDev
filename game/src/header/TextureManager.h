@@ -1,10 +1,10 @@
 #ifndef TEXTUREMANAGER_H
-#define TEXTUREMANAGER
+#define TEXTUREMANAGER_H
 
 #include <string>
 #include <iostream>
 #include <SDL.h>
-#include "SDL_image.h"
+#include <SDL_image.h>
 
 
 
