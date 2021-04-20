@@ -36,8 +36,8 @@ private:
 	bool running = false;
 	SDL_Window* window = nullptr;
 
-	int framerate; // the actual rendered FPS
-	int framerateTarget; // the FPS you want to achieve
+	int framerate = 0; // the actual rendered FPS
+	int framerateTarget = 60; // the FPS you want to achieve
 
 };
 
