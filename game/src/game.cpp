@@ -40,6 +40,17 @@ void Game::init(const char* title, int width, int height)
 	//swordman = TextureManager::LoadTexture(TextureManager::GetImages("character", "character_spritesheet.png"), renderer);
 
 	std::cout << "SDL initialized" << std::endl;
+
+
+	destR.h = 64;
+	destR.w = 64;
+
+	destR.x = 100;
+	destR.y = 100;
+
+
+	srcR.h = 30;
+	srcR.w = 15;
 }
 
 void Game::handleEvents()
@@ -60,24 +71,12 @@ void Game::handleEvents()
 
 void Game::update()
 {
-	destR.h = 64;
-	destR.w = 64;
-
-	destR.x = 100;
-	destR.y = 100;
-
-
-	srcR.h = 30;
-	srcR.w = 15;
+	
 }
 
 void Game::render()
 {
-	/*    SDL_SetRenderDrawColor(renderer, 100, 149, 237, 255);
-
-		  SDL_RenderClear(renderer);
-		  SDL_RenderPresent(renderer);*/
-
+	SDL_SetRenderDrawColor(renderer, 100, 149, 237, 255);
 	SDL_RenderClear(renderer);
 	SDL_RenderCopy(renderer, swordman, &srcR, &destR);
 	SDL_RenderPresent(renderer);
