@@ -1,13 +1,15 @@
 #include <iostream>
 #include "header/game.h"
 #include "header/TextureManager.h"
-
+#include "header/PlayerObject.h"
 
 
 
 SDL_Renderer* Game::renderer = nullptr;
 SDL_Texture* swordman;
 SDL_Rect srcR, destR;
+PlayerObject* mage;
+PlayerObject* potion;
 
 Game::Game() {}
 
@@ -36,12 +38,14 @@ void Game::init(const char* title, int width, int height)
 	swordman = SDL_CreateTextureFromSurface(renderer, surface);
 	SDL_FreeSurface(surface);*/
 
-	swordman = TextureManager::LoadTexture("res/textures/character/character_spritesheet.png", renderer);
+	//swordman = TextureManager::LoadTexture("res/textures/character/character_spritesheet.png", renderer);
 	//swordman = TextureManager::LoadTexture(TextureManager::GetImages("character", "character_spritesheet.png"), renderer);
+	mage = new PlayerObject("res/textures/character/character_spritesheet.png", renderer, 110, 0);
+	potion = new PlayerObject("res/textures/gui/gui_sheet.png", renderer, 0, 0);
 
 	std::cout << "SDL initialized" << std::endl;
 
-
+	/*
 	destR.h = 64;
 	destR.w = 64;
 
@@ -51,6 +55,7 @@ void Game::init(const char* title, int width, int height)
 
 	srcR.h = 30;
 	srcR.w = 15;
+	*/
 }
 
 void Game::handleEvents()
@@ -64,6 +69,28 @@ void Game::handleEvents()
 			if (event.key.keysym.scancode == SDL_SCANCODE_ESCAPE) {
 				running = false;
 			}
+			if (event.key.keysym.scancode == SDL_SCANCODE_W) {
+				
+				mage->setY(-20);
+				
+			}
+			if(event.key.keysym.scancode == SDL_SCANCODE_S) {
+				
+					mage->setY(+400);
+				
+				
+			}
+			if (event.key.keysym.scancode == SDL_SCANCODE_A) {
+				
+					mage->setX(-20);
+				
+			}
+			if (event.key.keysym.scancode == SDL_SCANCODE_D) {
+				
+					mage->setX(+400);
+				
+			}
+
 		}
 
 	}
@@ -71,14 +98,19 @@ void Game::handleEvents()
 
 void Game::update()
 {
-	
+	mage->Update();
+	potion->Update();
+
 }
 
 void Game::render()
 {
 	SDL_SetRenderDrawColor(renderer, 100, 149, 237, 255);
 	SDL_RenderClear(renderer);
-	SDL_RenderCopy(renderer, swordman, &srcR, &destR);
+	//SDL_RenderCopy(renderer, swordman, &srcR, &destR);
+	potion->RenderObject();
+	mage->RenderObject();
+	
 	SDL_RenderPresent(renderer);
 }
 
