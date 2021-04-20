@@ -8,14 +8,15 @@ int main(int argc, char* argv[]) {
 	
 
 	game.init("spill", 1024, 768);
+	game.setFramerateTarget(240);
 
 	
 	float delta = 0;
-	const uint64_t frequency = SDL_GetPerformanceFrequency();
 	float secondsloop = 0;
-	float sleep = 1000.0f / 240;
-	uint64_t timenow = SDL_GetPerformanceCounter();
+	auto sleep = [&]{ return 1000.0f / game.getFramerateTarget(); };
 
+	const uint64_t frequency = SDL_GetPerformanceFrequency();
+	uint64_t timenow = SDL_GetPerformanceCounter();
 
 	while (game.isRunning()) {
 		
@@ -24,7 +25,7 @@ int main(int argc, char* argv[]) {
 		{
 			timenow = SDL_GetPerformanceCounter(); // bad?
 			delta = ((timenow - last) * 1000 / (float)frequency);
-		} while (delta < sleep); // wait for the target fps
+		} while (delta < sleep()); // wait for the target fps
 		// use sleep?
 		secondsloop += delta;
 
@@ -34,8 +35,8 @@ int main(int argc, char* argv[]) {
 
 		if (secondsloop >= 1000.0f)
 		{
-			game.fps = (int)(1000.0f / delta) + 1; //TODO fix + 1
-			std::cout << "FPS: " << game.fps << std::endl;
+			game.setFramerate((int)(1000.0f / delta) + 1);
+			std::cout << "FPS: " << game.getFramerate() << std::endl;
 			secondsloop = 0;
 		}	
 		

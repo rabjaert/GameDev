@@ -23,12 +23,21 @@ public:
 	static SDL_Renderer* renderer;
 
 	inline bool isRunning() { return running; }
-	int fps;
-	
+
+
+	/* framerate */
+	inline int getFramerate() const { return framerate; }
+	void setFramerate(const int fps) { framerate = fps; };
+	/* framerate target */
+	inline int getFramerateTarget() const { return framerateTarget; }
+	void setFramerateTarget(const int fps) { framerateTarget = fps; }
 
 private:
 	bool running = false;
-	SDL_Window* window;
+	SDL_Window* window = nullptr;
+
+	int framerate; // the actual rendered FPS
+	int framerateTarget; // the FPS you want to achieve
 
 };
 
