@@ -15,8 +15,8 @@ public:
 	void Update();
 	void RenderObject();
 
-	void setX(int x);
-	void setY(int y);
+	void setX(const int x);
+	void setY(const int y);
 
 	int getX();
 	int getY();
@@ -27,16 +27,10 @@ private:
 	int xPos;
 	int yPos;
 
-	SDL_Texture* playerTexture;
+	SDL_Texture* playerTexture = nullptr;
+	SDL_Renderer* rend = nullptr;
 	SDL_Rect srcRect, destRect;
-	SDL_Renderer* rend;
-
-
-
-
-
-
-
+	
 };
 
 
