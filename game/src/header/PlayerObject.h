@@ -22,8 +22,6 @@ public:
 	inline int gety() { return yPos; }
 
 
-
-
 private:
 	int xPos;
 	int yPos;
@@ -31,7 +29,6 @@ private:
 	SDL_Texture* playerTexture = nullptr;
 	SDL_Renderer* rend = nullptr;
 	SDL_Rect srcRect, destRect;
-	
 };
 
 

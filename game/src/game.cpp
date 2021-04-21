@@ -88,6 +88,9 @@ void Game::render()
 
 void Game::dispose()
 {
+	delete mage;
+	delete potion;
+
 	IMG_Quit();
 	SDL_DestroyWindow(window);
 	SDL_DestroyRenderer(renderer);

@@ -5,7 +5,7 @@
 PlayerObject::PlayerObject(const char* filename, SDL_Renderer* ren, int x_Pos, int y_Pos) 
 {
 	rend = ren;
-	playerTexture = TextureManager::LoadTexture(filename, ren);
+	playerTexture = TextureManager::loadTexture(filename, ren);
 	xPos = x_Pos;
 	yPos = y_Pos;
 
@@ -22,7 +22,7 @@ PlayerObject::PlayerObject(const char* filename, SDL_Renderer* ren, int x_Pos, i
 
 PlayerObject::~PlayerObject()
 {
-
+	TextureManager::disposeTexture(playerTexture);
 }
 
 
