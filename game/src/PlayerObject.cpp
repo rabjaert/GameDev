@@ -32,7 +32,8 @@ void PlayerObject::update()
 	destRect.y = yPos;
 };
 
-void PlayerObject::render() {
+void PlayerObject::render() 
+{
 	SDL_RenderCopy(rend, playerTexture, &srcRect, &destRect);
 };
 
