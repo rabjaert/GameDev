@@ -2,7 +2,7 @@
 
 
 
-SDL_Texture* TextureManager::LoadTexture(const char* file, SDL_Renderer* renderer)
+SDL_Texture* TextureManager::loadTexture(const char* file, SDL_Renderer* renderer)
 {
     SDL_Texture* texture = NULL;
     SDL_Surface* surface = IMG_Load(file);
