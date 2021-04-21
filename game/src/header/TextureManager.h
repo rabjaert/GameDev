@@ -13,8 +13,8 @@ class TextureManager {
 public:
 
 
-	static SDL_Texture* loadTexture(const char* fileName, SDL_Renderer* rendrer);
-
+	static SDL_Texture* loadTexture(const char *fileName, SDL_Renderer *rendrer);
+	static void disposeTexture(SDL_Texture *texture);
 	
 	
 	//static const char* GetImages(const char* folder, const char* image_name);
