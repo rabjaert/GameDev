@@ -88,6 +88,7 @@ void Game::render()
 
 void Game::dispose()
 {
+	IMG_Quit();
 	SDL_DestroyWindow(window);
 	SDL_DestroyRenderer(renderer);
 	SDL_Quit();
