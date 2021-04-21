@@ -12,14 +12,15 @@ public:
 	~PlayerObject();
 
 
-	void Update();
-	void RenderObject();
+	void update();
+	void render();
 
 	void setX(const int x);
 	void setY(const int y);
 
-	int getX();
-	int getY();
+	inline int getX() { return xPos; }
+	inline int gety() { return yPos; }
+
 
 
 
