@@ -28,6 +28,17 @@ PlayerObject::~PlayerObject()
 
 void PlayerObject::update()
 {
+	
+	auto *state = SDL_GetKeyboardState(NULL);
+	if (state[SDL_SCANCODE_W]) 
+		moveRelative(0, -5);
+	if (state[SDL_SCANCODE_A])
+		moveRelative(-5, 0);
+	if (state[SDL_SCANCODE_S])
+		moveRelative(0, 5);
+	if (state[SDL_SCANCODE_D])
+		moveRelative(5, 0);
+
 	destRect.x = xPos;
 	destRect.y = yPos;
 };
@@ -45,3 +56,14 @@ void PlayerObject::setY(const int y) {
 	yPos = y;
 }
 
+void PlayerObject::setPosition(const int x, const int y)
+{
+	setX(x);
+	setY(y);
+}
+
+void PlayerObject::moveRelative(const int x, const int y)
+{
+	setX(xPos + x);
+	setY(yPos + y);
+}

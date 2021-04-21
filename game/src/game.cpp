@@ -52,18 +52,7 @@ void Game::handleEvents()
 			if (event.key.keysym.scancode == SDL_SCANCODE_ESCAPE) {
 				running = false;
 			}
-			if (event.key.keysym.scancode == SDL_SCANCODE_W) {
-				mage->setY(-20);
-			}
-			if(event.key.keysym.scancode == SDL_SCANCODE_S) {
-				mage->setY(+400);
-			}
-			if (event.key.keysym.scancode == SDL_SCANCODE_A) {	
-				mage->setX(-20);	
-			}
-			if (event.key.keysym.scancode == SDL_SCANCODE_D) {
-				mage->setX(+400);
-			}
+			
 		}
 	}
 }
