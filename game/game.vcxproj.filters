@@ -39,4 +39,27 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\textures\character\new_char.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\textures\character\character_spritesheet.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\textures\gui\gui_sheet.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\textures\gui\spellicons.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\textures\gui\playerInfo.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\textures\gui\placeName_long.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\textures\gui\placeName.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
 </Project>

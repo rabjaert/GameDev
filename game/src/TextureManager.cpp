@@ -4,8 +4,13 @@
 
 SDL_Texture *TextureManager::loadTexture(const char* file, SDL_Renderer* renderer)
 {
-    SDL_Texture *texture = IMG_LoadTexture(renderer, file);
-    return texture;
+        
+        SDL_Texture *texture = IMG_LoadTexture(renderer, file);
+        if (!texture) {
+                std::cout << "Error loading file " << file << std::endl;
+                std::cout << IMG_GetError() << std::endl;
+        }
+        return texture;
 }
 
 void TextureManager::disposeTexture(SDL_Texture* texture)
