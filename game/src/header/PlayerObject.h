@@ -1,5 +1,5 @@
-#ifndef PlayerObject_H
-#define PlayerObject_H
+#ifndef PLAYEROBJECT_H
+#define PLAYEROBJECT_H
 
 #include <SDL.h>
 //#include <SDL_image.h>
@@ -37,4 +37,4 @@ private:
 
 
 
-#endif PlayerObject_H
+#endif PLAYEROBJECT_H
