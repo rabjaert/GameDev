@@ -35,8 +35,10 @@ void Game::init(const char* title, int width, int height)
 
 
 	/* Under her kan vi ha kode for å teste ting */
-	mage = new PlayerObject("res/textures/character/character_spritesheet.png", renderer, 110, 0);
-	potion = new PlayerObject("res/textures/gui/gui_sheet.png", renderer, 0, 0);
+	mage = new PlayerObject(renderer, 110, 0);
+	mage->setTexture("res/textures/character/character_spritesheet.png");
+	potion = new PlayerObject(renderer, 0, 0);
+	potion->setTexture("res/textures/gui/gui_sheet.png");
 }
 
 void Game::handleEvents()

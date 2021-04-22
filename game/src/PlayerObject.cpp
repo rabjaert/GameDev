@@ -2,10 +2,10 @@
 #include "header/TextureManager.h"
 
 
-PlayerObject::PlayerObject(const char* filename, SDL_Renderer* ren, int x_Pos, int y_Pos) 
+PlayerObject::PlayerObject(SDL_Renderer* ren, int x_Pos, int y_Pos) 
+	: GameObject(ren, x_Pos, y_Pos)
 {
-	rend = ren;
-	playerTexture = TextureManager::loadTexture(filename, ren);
+	
 	xPos = x_Pos;
 	yPos = y_Pos;
 
@@ -19,11 +19,6 @@ PlayerObject::PlayerObject(const char* filename, SDL_Renderer* ren, int x_Pos, i
 	destRect.h = 64;
 	destRect.w = 64;
 };
-
-PlayerObject::~PlayerObject()
-{
-	TextureManager::disposeTexture(playerTexture);
-}
 
 
 void PlayerObject::update()
@@ -42,28 +37,3 @@ void PlayerObject::update()
 	destRect.x = xPos;
 	destRect.y = yPos;
 };
-
-void PlayerObject::render() 
-{
-	SDL_RenderCopy(rend, playerTexture, &srcRect, &destRect);
-};
-
-void PlayerObject::setX(const int x) {
-	xPos = x;
-}
-
-void PlayerObject::setY(const int y) {
-	yPos = y;
-}
-
-void PlayerObject::setPosition(const int x, const int y)
-{
-	setX(x);
-	setY(y);
-}
-
-void PlayerObject::moveRelative(const int x, const int y)
-{
-	setX(xPos + x);
-	setY(yPos + y);
-}

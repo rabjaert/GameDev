@@ -2,38 +2,15 @@
 #define PLAYEROBJECT_H
 
 #include <SDL.h>
-//#include <SDL_image.h>
+#include "GameObject.h"
 
-
-class PlayerObject {
+class PlayerObject : public GameObject {
 
 public:
-	PlayerObject(const char* image, SDL_Renderer* ren, int xPos, int yPos);
-	~PlayerObject();
 
+	PlayerObject(SDL_Renderer* ren, int xPos, int yPos);
 
-	void update();
-	void render();
-
-	/* Set the player's position */
-	void setX(const int x);
-	void setY(const int y);
-	void setPosition(const int x, const int y);
-
-	/* Moves the player relative to its current position */
-	void moveRelative(const int x, const int y);
-
-	/* Getters for position */
-	inline int getX() { return xPos; }
-	inline int gety() { return yPos; }
-
-private:
-	int xPos;
-	int yPos;
-
-	SDL_Texture* playerTexture = nullptr;
-	SDL_Renderer* rend = nullptr;
-	SDL_Rect srcRect, destRect;
+	void update() override;
 };
 
 
