@@ -41,34 +41,26 @@
     <ClInclude Include="PlayerObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\header\GameObject.h">
+    <ClInclude Include="src\header\PlayerObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\header\PlayerObject.h">
+    <ClInclude Include="src\header\EntityComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\header\Components.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\header\SpritComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\header\PositionComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="res\textures\character\new_char.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="res\textures\character\character_spritesheet.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="res\textures\gui\gui_sheet.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="res\textures\gui\spellicons.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="res\textures\gui\playerInfo.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="res\textures\gui\placeName_long.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="res\textures\gui\placeName.png">
-      <Filter>Resource Files</Filter>
-    </Image>
+    <None Include="libpng16-16.dll" />
+    <None Include="SDL2.dll" />
+    <None Include="SDL2_image.dll" />
+    <None Include="zlib1.dll" />
   </ItemGroup>
 </Project>

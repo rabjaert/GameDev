@@ -4,6 +4,8 @@
 #include "header/PlayerObject.h"
 
 
+#include "header/Components.h"
+
 
 SDL_Renderer* Game::renderer = nullptr;
 
@@ -11,6 +13,8 @@ SDL_Renderer* Game::renderer = nullptr;
 PlayerObject* mage;
 PlayerObject* potion;
 
+Manager manager;
+auto& newPlayer(manager.addEntity());
 
 Game::Game() {}
 Game::~Game() {}
@@ -39,6 +43,10 @@ void Game::init(const char* title, int width, int height)
 	mage->setTexture("res/textures/character/character_spritesheet.png");
 	potion = new PlayerObject(renderer, 0, 0);
 	potion->setTexture("res/textures/gui/gui_sheet.png");
+
+	newPlayer.addComponent<PositionComponent>();
+	
+
 }
 
 void Game::handleEvents()
@@ -63,6 +71,9 @@ void Game::update()
 {
 	mage->update();
 	potion->update();
+	manager.update();
+	std::cout << newPlayer.getComponent<PositionComponent>().getX() << "," <<
+		newPlayer.getComponent<PositionComponent>().getY() << std::endl;
 }
 
 void Game::render()
