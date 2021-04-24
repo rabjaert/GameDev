@@ -5,6 +5,7 @@
 
 
 #include "header/ESC/Components.h"
+#include "header/ESC/Vector2D.h"
 
 
 SDL_Renderer* Game::renderer = nullptr;
@@ -74,6 +75,12 @@ void Game::update()
 	//potion->update();
 	manager.refresh();
 	manager.update();
+
+	newPlayer.getComponent<TransformComponent>().postition.Add(Vector2D(5, 0));
+	if (newPlayer.getComponent<TransformComponent>().postition.xPos > 100)
+	{
+		newPlayer.getComponent<SpriteComponent>().setTex("res/textures/character/character_spritesheet.png");
+	}
 	
 }
 

@@ -2,44 +2,32 @@
 #define POSITIONCOMPONENT_H
 
 #include "Components.h"
-
+#include "../ESC/Vector2D.h"
 
 class TransformComponent : public Component
 {
-private:
-	int xPos;
-	int yPos;
-
 public:
-	
+
+	Vector2D postition;
+
 	TransformComponent()
 	{
-		xPos = 0;
-		yPos = 0;
+		postition.xPos = 0.0f;
+		postition.yPos = 0.0f;
 	}
 	
-	TransformComponent(int x, int y) {
-		setPos(x, y);
+	TransformComponent(float x, float y) {
+		postition.xPos = x;
+		postition.yPos = y;
 	}
 
 
 
 	void update() override
 	{
-		xPos++;
-		yPos++;
+		
 	}
 
-	int getX() { return xPos; }
-	int getY() { return yPos; }
-	
-	void setX(int x) { xPos = x; }
-	void setY(int y) { yPos = y; }
-
-	void setPos(int x, int y) {
-		xPos = x;
-		yPos = y;
-	}
 
 
 };

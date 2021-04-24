@@ -17,7 +17,7 @@ public:
 	SpriteComponent() = default;
 	SpriteComponent(const char* path)
 	{
-		texture = TextureManager::loadTexture(path, Game::renderer);
+		setTex(path);
 	}
 
 	void init() override
@@ -31,8 +31,8 @@ public:
 	
 	void update() override
 	{
-		destRect.x = transform->getX();
-		destRect.y = transform->getY();
+		destRect.x = (int)transform->postition.xPos;
+		destRect.y = (int)transform->postition.yPos;
 	}
 	
 	void render() override
@@ -40,7 +40,9 @@ public:
 		TextureManager::Draw(texture, srcRect, destRect);
 	}
 
-
+	void setTex(const char* path) {
+		texture = TextureManager::loadTexture(path, Game::renderer);
+	}
 
 
 
