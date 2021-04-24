@@ -4,7 +4,7 @@
 #include "EntityComponent.h"
 #include "TransformComponent.h"
 #include "SpritComponent.h"
-
+#include "KeyboardController.h"
 
 
 

@@ -10,9 +10,13 @@
 
 SDL_Renderer* Game::renderer = nullptr;
 
+SDL_Event Game::event;
+
 /* Prøve å unngå å bruke globale variabler */
 PlayerObject* mage;
 PlayerObject* potion;
+
+
 
 Manager manager;
 auto& newPlayer(manager.addEntity());
@@ -47,13 +51,14 @@ void Game::init(const char* title, int width, int height)
 
 	newPlayer.addComponent<TransformComponent>(100, 500);
 	newPlayer.addComponent<SpriteComponent>("res/textures/gui/gui_sheet.png");
+	newPlayer.addComponent<KeyboardController>();
 	
 
 }
 
 void Game::handleEvents()
 {
-	SDL_Event event;
+	
 	while (SDL_PollEvent(&event)) {
 
 		if (event.type == SDL_QUIT) {
@@ -76,11 +81,7 @@ void Game::update()
 	manager.refresh();
 	manager.update();
 
-	newPlayer.getComponent<TransformComponent>().postition.Add(Vector2D(5, 0));
-	if (newPlayer.getComponent<TransformComponent>().postition.xPos > 100)
-	{
-		newPlayer.getComponent<SpriteComponent>().setTex("res/textures/character/character_spritesheet.png");
-	}
+	
 	
 }
 

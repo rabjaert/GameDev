@@ -8,7 +8,7 @@ int main(int argc, char* argv[]) {
 	
 
 	game.init("spill", 1024, 768);
-	game.setFramerateTarget(60);
+	game.setFramerateTarget(240);
 
 	
 	float delta = 0;
