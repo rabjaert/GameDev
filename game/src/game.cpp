@@ -6,6 +6,7 @@
 
 #include "header/ESC/Components.h"
 #include "header/ESC/Vector2D.h"
+#include "header/ESC/Collision.h"
 
 
 SDL_Renderer* Game::renderer = nullptr;
@@ -20,6 +21,7 @@ PlayerObject* potion;
 
 Manager manager;
 auto& newPlayer(manager.addEntity());
+auto& wall(manager.addEntity());
 
 Game::Game() {}
 Game::~Game() {}
@@ -52,6 +54,9 @@ void Game::init(const char* title, int width, int height)
 	newPlayer.addComponent<TransformComponent>(100, 500);
 	newPlayer.addComponent<SpriteComponent>("res/textures/gui/gui_sheet.png");
 	newPlayer.addComponent<KeyboardController>();
+
+	wall.addComponent<TransformComponent>(300.0f, 300.0f, 150, 150, 2);
+	wall.addComponent<SpriteComponent>();
 	
 
 }

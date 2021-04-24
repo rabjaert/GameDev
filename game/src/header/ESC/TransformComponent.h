@@ -11,7 +11,12 @@ public:
 	Vector2D postition;
 	Vector2D velocity;
 
-	int speed = 0.001;
+	int height = 32;
+	int width = 32;
+	int scale = 1;
+
+
+	int speed = 2;
 
 
 	TransformComponent()

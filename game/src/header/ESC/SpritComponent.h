@@ -19,20 +19,27 @@ public:
 	{
 		setTex(path);
 	}
+	~SpriteComponent()
+	{
+		SDL_DestroyTexture(texture);
+	}
 
 	void init() override
 	{
 		transform = &entity->getComponent<TransformComponent>();
 		
 		srcRect.x = srcRect.y = 0;
-		srcRect.w = srcRect.h = 64;
-		destRect.w = destRect.h = 64;
+		srcRect.w = transform->width;
+		srcRect.h = transform->height;
+	
 	}
 	
 	void update() override
 	{
 		destRect.x = (int)transform->postition.xPos;
 		destRect.y = (int)transform->postition.yPos;
+		destRect.w = transform->width * transform->scale;
+		destRect.h = transform->height * transform->scale;
 	}
 	
 	void render() override
