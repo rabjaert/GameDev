@@ -42,7 +42,7 @@ public:
 	Entity* entity;
 	virtual void init(){}
 	virtual void update(){}
-	virtual void draw(){}
+	virtual void render(){}
 	virtual ~Component(){}
 	
 };
@@ -59,7 +59,7 @@ private:
 
 public:
 	void update() {	for (auto& c : components) c->update(); }
-	void draw(){ for (auto& c : components) c->draw(); }
+	void render(){ for (auto& c : components) c->render(); }
 	bool isActive() const{	return active;	}
 	void destroy(){	active = false;	}
 			
@@ -106,11 +106,11 @@ public:
 			e->update();
 		}
 	}
-	void draw()
+	void render()
 	{
 		for (auto& e : entities)
 		{
-			e->draw();
+			e->render();
 		}
 	}
 	void refresh()

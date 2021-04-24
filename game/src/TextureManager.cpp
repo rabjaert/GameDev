@@ -1,5 +1,5 @@
 #include "header/TextureManager.h"
-
+#include "header/game.h"
 
 
 SDL_Texture *TextureManager::loadTexture(const char* file, SDL_Renderer* renderer)
@@ -11,6 +11,11 @@ SDL_Texture *TextureManager::loadTexture(const char* file, SDL_Renderer* rendere
                 std::cout << IMG_GetError() << std::endl;
         }
         return texture;
+}
+
+void TextureManager::Draw(SDL_Texture* tex, SDL_Rect src, SDL_Rect dest)
+{
+    SDL_RenderCopy(Game::renderer, tex, &src, &dest);
 }
 
 void TextureManager::disposeTexture(SDL_Texture* texture)

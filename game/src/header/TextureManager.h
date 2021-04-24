@@ -14,6 +14,7 @@ public:
 
 
 	static SDL_Texture* loadTexture(const char *fileName, SDL_Renderer *rendrer);
+	static void Draw(SDL_Texture* tex, SDL_Rect src, SDL_Rect dest);
 	static void disposeTexture(SDL_Texture *texture);
 	
 	

@@ -42,9 +42,10 @@ void Game::init(const char* title, int width, int height)
 	mage = new PlayerObject(renderer, 110, 0);
 	mage->setTexture("res/textures/character/character_spritesheet.png");
 	potion = new PlayerObject(renderer, 0, 0);
-	potion->setTexture("res/textures/gui/gui_sheet.png");
+	//potion->setTexture("res/textures/gui/gui_sheet.png");
 
-	newPlayer.addComponent<PositionComponent>();
+	newPlayer.addComponent<PositionComponent>(100, 500);
+	newPlayer.addComponent<SpriteComponent>("res/textures/gui/gui_sheet.png");
 	
 
 }
@@ -70,10 +71,10 @@ void Game::handleEvents()
 void Game::update()
 {
 	mage->update();
-	potion->update();
+	//potion->update();
+	manager.refresh();
 	manager.update();
-	std::cout << newPlayer.getComponent<PositionComponent>().getX() << "," <<
-		newPlayer.getComponent<PositionComponent>().getY() << std::endl;
+	
 }
 
 void Game::render()
@@ -83,7 +84,9 @@ void Game::render()
 
 	mage->render();
 	potion->render();
-	
+	manager.render();
+
+
 	SDL_RenderPresent(renderer);
 }
 

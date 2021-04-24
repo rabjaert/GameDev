@@ -11,20 +11,30 @@ private:
 	int yPos;
 
 public:
-	int getX() { return xPos; }
-	int getY() { return yPos; }
-
-	void init() override
+	
+	PositionComponent()
 	{
 		xPos = 0;
 		yPos = 0;
 	}
+	
+	PositionComponent(int x, int y) {
+		setPos(x, y);
+	}
+
+
 
 	void update() override
 	{
 		xPos++;
 		yPos++;
 	}
+
+	int getX() { return xPos; }
+	int getY() { return yPos; }
+	
+	void setX(int x) { xPos = x; }
+	void setY(int y) { yPos = y; }
 
 	void setPos(int x, int y) {
 		xPos = x;
