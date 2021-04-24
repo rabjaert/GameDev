@@ -4,7 +4,7 @@
 #include "header/PlayerObject.h"
 
 
-#include "header/Components.h"
+#include "header/ESC/Components.h"
 
 
 SDL_Renderer* Game::renderer = nullptr;
@@ -44,7 +44,7 @@ void Game::init(const char* title, int width, int height)
 	potion = new PlayerObject(renderer, 0, 0);
 	//potion->setTexture("res/textures/gui/gui_sheet.png");
 
-	newPlayer.addComponent<PositionComponent>(100, 500);
+	newPlayer.addComponent<TransformComponent>(100, 500);
 	newPlayer.addComponent<SpriteComponent>("res/textures/gui/gui_sheet.png");
 	
 

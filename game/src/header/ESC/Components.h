@@ -2,7 +2,7 @@
 #define COMPONENTS_H
 
 #include "EntityComponent.h"
-#include "PositionComponent.h"
+#include "TransformComponent.h"
 #include "SpritComponent.h"
 
 

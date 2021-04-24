@@ -44,16 +44,16 @@
     <ClInclude Include="src\header\PlayerObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\header\EntityComponent.h">
+    <ClInclude Include="src\header\ESC\EntityComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\header\Components.h">
+    <ClInclude Include="src\header\ESC\Components.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\header\SpritComponent.h">
+    <ClInclude Include="src\header\ESC\SpritComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\header\PositionComponent.h">
+    <ClInclude Include="src\header\ESC\TransformComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

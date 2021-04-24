@@ -4,7 +4,7 @@
 #include "Components.h"
 
 
-class PositionComponent : public Component
+class TransformComponent : public Component
 {
 private:
 	int xPos;
@@ -12,13 +12,13 @@ private:
 
 public:
 	
-	PositionComponent()
+	TransformComponent()
 	{
 		xPos = 0;
 		yPos = 0;
 	}
 	
-	PositionComponent(int x, int y) {
+	TransformComponent(int x, int y) {
 		setPos(x, y);
 	}
 
