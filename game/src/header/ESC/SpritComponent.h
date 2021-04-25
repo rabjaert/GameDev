@@ -28,7 +28,8 @@ public:
 	{
 		transform = &entity->getComponent<TransformComponent>();
 		
-		srcRect.x = srcRect.y = 0;
+		srcRect.x = transform->xPosInDestRect;
+		srcRect.y = transform->yPosInDestRect;
 		srcRect.w = transform->width;
 		srcRect.h = transform->height;
 	

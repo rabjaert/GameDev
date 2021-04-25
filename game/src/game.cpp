@@ -22,6 +22,9 @@ PlayerObject* potion;
 Manager manager;
 auto& newPlayer(manager.addEntity());
 auto& wall(manager.addEntity());
+auto& wall1(manager.addEntity());
+auto& wall2(manager.addEntity());
+auto& wall3(manager.addEntity());
 
 Game::Game() {}
 Game::~Game() {}
@@ -51,14 +54,20 @@ void Game::init(const char* title, int width, int height)
 	//potion = new PlayerObject(renderer, 0, 0);
 	//potion->setTexture("res/textures/gui/gui_sheet.png");
 
-	newPlayer.addComponent<TransformComponent>(4, 2);
+	newPlayer.addComponent<TransformComponent>(2);
 	newPlayer.addComponent<SpriteComponent>("res/textures/character/character_spritesheet.png");
 	newPlayer.addComponent<KeyboardController>();
-	//newPlayer.addComponent<ColliderComponent>("player");
+	newPlayer.addComponent<ColliderComponent>("player");
 
-	/*wall.addComponent<TransformComponent>(300.0f, 300.0f, 300, 300, 1);
+	wall.addComponent<TransformComponent>(300.0f, 300.0f, 300, 300, 1);
 	wall.addComponent<SpriteComponent>("res/textures/tileset/flora.png");
-	wall.addComponent<ColliderComponent>("wall");*/
+	wall.addComponent<ColliderComponent>("wall");
+
+	wall2.addComponent<TransformComponent>(700.0f, 300.0f, 300, 300, 1);
+	wall2.addComponent<SpriteComponent>("res/textures/tileset/flora.png");
+	wall2.addComponent<ColliderComponent>("wall2");
+
+	
 
 }
 
@@ -87,12 +96,19 @@ void Game::update()
 	manager.refresh();
 	manager.update();
 
-	/*if (Collision::AABB(newPlayer.getComponent<ColliderComponent>().collider,
+	if (Collision::AABB(newPlayer.getComponent<ColliderComponent>().collider,
 		wall.getComponent<ColliderComponent>().collider))
 	{
-		newPlayer.getComponent<TransformComponent>().scale = 1;
+		
 		std::cout << "Wall hit!" << std::endl;
-	}*/
+	}
+
+	if (Collision::AABB(newPlayer.getComponent<ColliderComponent>().collider,
+		wall2.getComponent<ColliderComponent>().collider))
+	{
+
+		std::cout << "Wall hit!" << std::endl;
+	}
 	
 	
 }

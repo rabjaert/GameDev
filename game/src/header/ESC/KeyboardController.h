@@ -24,22 +24,18 @@ public:
 
 		auto* state = SDL_GetKeyboardState(NULL);
 		if (state[SDL_SCANCODE_W]) {
-			std::cout << "w pressed" << std::endl;
 			transform->velocity.yPos = -1;
 		}
 		if (state[SDL_SCANCODE_A]) {
-			std::cout << "a pressed" << std::endl;
 			transform->velocity.xPos = -1;
 		}
 
 
 		if (state[SDL_SCANCODE_D]) {
-			std::cout << "d pressed" << std::endl;
 			transform->velocity.xPos = 1;
 		}
 
 		if (state[SDL_SCANCODE_S]) {
-			std::cout << "s pressed" << std::endl;
 			transform->velocity.yPos = 1;
 		}
 
@@ -47,12 +43,12 @@ public:
 
 		if (Game::event.type == SDL_KEYUP) {
 			if (Game::event.key.keysym.scancode == SDL_SCANCODE_W) {
-				std::cout << "w released" << std::endl;
+				
 				transform->velocity.yPos = 0;
 			}
 			if (Game::event.key.keysym.scancode == SDL_SCANCODE_A)
 			{
-				std::cout << "a release" << std::endl;
+				
 				transform->velocity.xPos = 0;
 			}
 			if (Game::event.key.keysym.scancode == SDL_SCANCODE_D)

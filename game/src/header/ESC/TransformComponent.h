@@ -15,6 +15,8 @@ public:
 	int width = 32;
 	int scale = 1;
 
+	int xPosInDestRect = 0;
+	int yPosInDestRect = 0;
 
 	int speed = 3;
 
@@ -42,6 +44,18 @@ public:
 		height = h;
 		width = w;
 		scale = sc;
+
+	}
+	
+	TransformComponent(float x, float y, int h, int w, int posXinDestRect, int posYinDestRect, int sc) {
+		postition.xPos = x;
+		postition.yPos = y;
+		height = h;
+		width = w;
+		xPosInDestRect = posXinDestRect;
+		yPosInDestRect = posYinDestRect;
+		scale = sc;
+
 	}
 
 	void init() override
