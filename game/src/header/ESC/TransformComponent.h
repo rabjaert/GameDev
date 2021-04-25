@@ -16,7 +16,7 @@ public:
 	int scale = 1;
 
 
-	int speed = 2;
+	int speed = 3;
 
 
 	TransformComponent()
@@ -24,10 +24,24 @@ public:
 		postition.xPos = 0.0f;
 		postition.yPos = 0.0f;
 	}
+
+	TransformComponent(int sc) {
+		postition.xPos = 0.0f;
+		postition.yPos = 0.0f;
+		scale = sc;
+	}
 	
 	TransformComponent(float x, float y) {
 		postition.xPos = x;
 		postition.yPos = y;
+	}
+
+	TransformComponent(float x, float y, int h, int w, int sc) {
+		postition.xPos = x;
+		postition.yPos = y;
+		height = h;
+		width = w;
+		scale = sc;
 	}
 
 	void init() override

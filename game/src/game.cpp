@@ -46,18 +46,19 @@ void Game::init(const char* title, int width, int height)
 
 
 	/* Under her kan vi ha kode for å teste ting */
-	mage = new PlayerObject(renderer, 110, 0);
-	mage->setTexture("res/textures/character/character_spritesheet.png");
-	potion = new PlayerObject(renderer, 0, 0);
+	//mage = new PlayerObject(renderer, 110, 0);
+	//mage->setTexture("res/textures/character/character_spritesheet.png");
+	//potion = new PlayerObject(renderer, 0, 0);
 	//potion->setTexture("res/textures/gui/gui_sheet.png");
 
-	newPlayer.addComponent<TransformComponent>(100, 500);
-	newPlayer.addComponent<SpriteComponent>("res/textures/gui/gui_sheet.png");
+	newPlayer.addComponent<TransformComponent>(4, 2);
+	newPlayer.addComponent<SpriteComponent>("res/textures/character/character_spritesheet.png");
 	newPlayer.addComponent<KeyboardController>();
+	//newPlayer.addComponent<ColliderComponent>("player");
 
-	wall.addComponent<TransformComponent>(300.0f, 300.0f, 150, 150, 2);
-	wall.addComponent<SpriteComponent>();
-	
+	/*wall.addComponent<TransformComponent>(300.0f, 300.0f, 300, 300, 1);
+	wall.addComponent<SpriteComponent>("res/textures/tileset/flora.png");
+	wall.addComponent<ColliderComponent>("wall");*/
 
 }
 
@@ -81,11 +82,17 @@ void Game::handleEvents()
 
 void Game::update()
 {
-	mage->update();
+	//mage->update();
 	//potion->update();
 	manager.refresh();
 	manager.update();
 
+	/*if (Collision::AABB(newPlayer.getComponent<ColliderComponent>().collider,
+		wall.getComponent<ColliderComponent>().collider))
+	{
+		newPlayer.getComponent<TransformComponent>().scale = 1;
+		std::cout << "Wall hit!" << std::endl;
+	}*/
 	
 	
 }
@@ -95,8 +102,8 @@ void Game::render()
 	SDL_SetRenderDrawColor(renderer, 100, 149, 237, 255);
 	SDL_RenderClear(renderer);
 
-	mage->render();
-	potion->render();
+	//mage->render();
+	//potion->render();
 	manager.render();
 
 
