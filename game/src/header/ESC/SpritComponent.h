@@ -28,8 +28,7 @@ public:
 	{
 		transform = &entity->getComponent<TransformComponent>();
 		
-		srcRect.x = transform->xPosInDestRect;
-		srcRect.y = transform->yPosInDestRect;
+		srcRect.x = srcRect.y = 0;
 		srcRect.w = transform->width;
 		srcRect.h = transform->height;
 	
@@ -37,8 +36,8 @@ public:
 	
 	void update() override
 	{
-		destRect.x = (int)transform->postition.xPos;
-		destRect.y = (int)transform->postition.yPos;
+		destRect.x = static_cast<int>(transform->postition.xPos);
+		destRect.y = static_cast<int>(transform->postition.yPos);
 		destRect.w = transform->width * transform->scale;
 		destRect.h = transform->height * transform->scale;
 	}
