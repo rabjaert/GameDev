@@ -21,7 +21,7 @@ Vector2D& Vector2D::Add(const Vector2D& vec)
 	return *this;
 }
 
-Vector2D& Vector2D::Substract(const Vector2D& vec)
+Vector2D& Vector2D::Subtract(const Vector2D& vec)
 {
 	this->xPos -= vec.xPos;
 	this->yPos -= vec.yPos;
@@ -29,7 +29,7 @@ Vector2D& Vector2D::Substract(const Vector2D& vec)
 	return *this;
 }
 
-Vector2D& Vector2D::Multiplay(const Vector2D& vec)
+Vector2D& Vector2D::Multiply(const Vector2D& vec)
 {
 	this->xPos *= vec.xPos;
 	this->yPos *= vec.yPos;
@@ -49,17 +49,20 @@ Vector2D& operator+(Vector2D& v1, const Vector2D& v2)
 {
 	return v1.Add(v2);
 }
+
 Vector2D& operator-(Vector2D& v1, const Vector2D& v2)
 {
-	return v1.Substract(v2);
+	return v1.Subtract(v2);
 }
+
 Vector2D& operator*(Vector2D& v1, const Vector2D& v2)
 {
-	return v1.Multiplay(v2);
+	return v1.Multiply(v2);
 }
+
 Vector2D& operator/(Vector2D& v1, const Vector2D& v2)
 {
-	return v1.Multiplay(v2);
+	return v1.Divide(v2);
 }
 
 Vector2D& Vector2D::operator+=(const Vector2D& vec)
@@ -69,12 +72,12 @@ Vector2D& Vector2D::operator+=(const Vector2D& vec)
 
 Vector2D& Vector2D::operator-=(const Vector2D& vec)
 {
-	return this->Substract(vec);
+	return this->Subtract(vec);
 }
 
 Vector2D& Vector2D::operator*=(const Vector2D& vec)
 {
-	return this->Multiplay(vec);
+	return this->Multiply(vec);
 }
 
 Vector2D& Vector2D::operator/=(const Vector2D& vec)
@@ -92,11 +95,10 @@ Vector2D& Vector2D::operator*(const int& i)
 
 Vector2D& Vector2D::Zero()
 {
-	this->xPos *= 0;
-	this->yPos *= 0;
+	this->xPos = 0;
+	this->yPos = 0;
 
 	return *this;
-
 }
 
 std::ostream& operator<<(std::ostream& stream, const Vector2D& vec)

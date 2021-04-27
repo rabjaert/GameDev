@@ -51,8 +51,8 @@ public:
 
 	void update() override
 	{
-		postition.xPos += velocity.xPos * speed;
-		postition.yPos += velocity.yPos * speed;
+		postition.xPos += static_cast<int>(velocity.xPos * speed);
+		postition.yPos += static_cast<int>(velocity.yPos * speed);
 	}
 
 

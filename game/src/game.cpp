@@ -52,13 +52,13 @@ void Game::init(const char* title, int width, int height)
 	//potion = new PlayerObject(renderer, 0, 0);
 	//potion->setTexture("res/textures/gui/gui_sheet.png");
 
-	newPlayer.addComponent<TransformComponent>(2);
+	newPlayer.addComponent<TransformComponent>(1);
 	newPlayer.addComponent<SpriteComponent>("res/textures/character/character_spritesheet.png");
 	newPlayer.addComponent<KeyboardController>();
 	newPlayer.addComponent<ColliderComponent>("newPlayer");
 
 	
-	wall2.addComponent<TransformComponent>(500, 300, 50, 50, 1);
+	wall2.addComponent<TransformComponent>(500, 300, 200, 50, 1);
 	wall2.addComponent<SpriteComponent>("res/textures/enemies/wolf.png");
 	wall2.addComponent<ColliderComponent>("wall2");
 
