@@ -28,8 +28,15 @@ public:
 
 
 	/* framerate */
+
+	static int getStaticFramerate()  { return framerate; }
+	static int getStaticFramerateTarget() { return framerateTarget; }
+
 	inline int getFramerate() const { return framerate; }
-	void setFramerate(const int fps) { framerate = fps; };
+	void setFramerate(const int fps) 
+	{ 
+		framerate = fps; 
+	};
 	/* framerate target */
 	inline int getFramerateTarget() const { return framerateTarget; }
 	void setFramerateTarget(const int fps) { framerateTarget = fps; }
@@ -38,8 +45,8 @@ private:
 	bool running = false;
 	SDL_Window* window = nullptr;
 
-	int framerate = 0; // the actual rendered FPS
-	int framerateTarget = 60; // the FPS you want to achieve
+	int static framerate; // the actual rendered FPS
+	int static framerateTarget; // the FPS you want to achieve
 
 };
 

@@ -74,6 +74,9 @@
     <ClInclude Include="src\header\ESC\Collision.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\header\ESC\Animation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="libpng16-16.dll" />

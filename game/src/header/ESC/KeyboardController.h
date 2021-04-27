@@ -26,47 +26,28 @@ public:
 		
 		transform->velocity.xPos = 0;
 		transform->velocity.yPos = 0;
+		sprite->Play("Idle");
 		
 		auto* state = SDL_GetKeyboardState(NULL);
 		if (state[SDL_SCANCODE_W]) {
 			transform->velocity.yPos = -1;
+			sprite->Play("Walk");
 		}
 		if (state[SDL_SCANCODE_A]) {
 			transform->velocity.xPos = -1;
+			sprite->Play("Walk");
 		}
 
 
 		if (state[SDL_SCANCODE_D]) {
 			transform->velocity.xPos = 1;
+			sprite->Play("Walk");
 		}
 
 		if (state[SDL_SCANCODE_S]) {
 			transform->velocity.yPos = 1;
+			sprite->Play("Walk");
 		}
-		
-		
-
-		/*Game::event;
-
-		if (Game::event.type == SDL_KEYUP) {
-			if (Game::event.key.keysym.scancode == SDL_SCANCODE_W) {
-
-				transform->velocity.yPos = 0;
-			}
-			if (Game::event.key.keysym.scancode == SDL_SCANCODE_A)
-			{
-
-				transform->velocity.xPos = 0;
-			}
-			if (Game::event.key.keysym.scancode == SDL_SCANCODE_D)
-			{
-				transform->velocity.xPos = 0;
-			}
-			if (Game::event.key.keysym.scancode == SDL_SCANCODE_S)
-			{
-				transform->velocity.yPos = 0;
-			}
-	}*/
 	}
 
 };

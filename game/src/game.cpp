@@ -17,6 +17,8 @@ SDL_Event Game::event;
 PlayerObject* mage;
 PlayerObject* potion;
 
+int Game::framerate = 0;
+int Game::framerateTarget = 0;
 
 
 Manager manager;
@@ -52,8 +54,8 @@ void Game::init(const char* title, int width, int height)
 	//potion = new PlayerObject(renderer, 0, 0);
 	//potion->setTexture("res/textures/gui/gui_sheet.png");
 
-	newPlayer.addComponent<TransformComponent>(1);
-	newPlayer.addComponent<SpriteComponent>("res/textures/character/character_spritesheet.png");
+	newPlayer.addComponent<TransformComponent>(0,0, 45, 16, 0, 56, 2);
+	newPlayer.addComponent<SpriteComponent>("res/textures/character/walk-run-reference.png", true);
 	newPlayer.addComponent<KeyboardController>();
 	newPlayer.addComponent<ColliderComponent>("newPlayer");
 
@@ -100,7 +102,7 @@ void Game::update()
 		newPlayer.getComponent<TransformComponent>().postition = playerPos;
 
 		std::cout << "Collision!" << std::endl;
-		newPlayer.getComponent<TransformComponent>().velocity * -1;
+		newPlayer.getComponent<TransformComponent>().velocity * 1;
 
 	}
 

@@ -15,6 +15,9 @@ public:
 	int width = 32;
 	int scale = 1;
 
+	int srcX = 0;
+	int srcY = 0;
+
 
 	int speed = 3;
 
@@ -38,6 +41,17 @@ public:
 		postition.yPos = y;
 		height = h;
 		width = w;
+		scale = sc;
+
+	}
+
+	TransformComponent(float x, float y, int h, int w, int srcXi, int srcYi, int sc) {
+		postition.xPos = x;
+		postition.yPos = y;
+		height = h;
+		width = w;
+		srcX = srcXi;
+		srcY = srcYi;
 		scale = sc;
 
 	}

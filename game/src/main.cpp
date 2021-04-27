@@ -6,6 +6,7 @@
 int main(int argc, char* argv[]) {
 	Game game;
 	
+	
 
 	game.init("spill", 1024, 768);
 	game.setFramerateTarget(144);
