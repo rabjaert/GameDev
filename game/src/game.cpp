@@ -84,20 +84,26 @@ void Game::handleEvents()
 	}
 }
 
+
 void Game::update()
 {
 	//mage->update();
 	//potion->update();
+	Vector2D playerPos = newPlayer.getComponent<TransformComponent>().postition;
+
 	manager.refresh();
 	manager.update();
 
 
-	if (Collision::AABB(newPlayer.getComponent<ColliderComponent>().collider,
-		wall2.getComponent<ColliderComponent>().collider))
-	{
+	if (Collision::AABB(newPlayer.getComponent<ColliderComponent>().collider, wall2.getComponent<ColliderComponent>().collider)) {
+
+		newPlayer.getComponent<TransformComponent>().postition = playerPos;
+
+		std::cout << "Collision!" << std::endl;
 		newPlayer.getComponent<TransformComponent>().velocity * -1;
-		std::cout << "Wall hit!" << std::endl;
+
 	}
+
 	
 	
 }
