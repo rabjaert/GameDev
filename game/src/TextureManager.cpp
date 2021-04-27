@@ -13,9 +13,9 @@ SDL_Texture *TextureManager::loadTexture(const char* file, SDL_Renderer* rendere
         return texture;
 }
 
-void TextureManager::Draw(SDL_Texture* tex, SDL_Rect src, SDL_Rect dest)
+void TextureManager::Draw(SDL_Texture* tex, SDL_Rect src, SDL_Rect dest, SDL_RendererFlip flip)
 {
-    SDL_RenderCopy(Game::renderer, tex, &src, &dest);
+    SDL_RenderCopyEx(Game::renderer, tex, &src, &dest, NULL, NULL, flip);
 }
 
 void TextureManager::disposeTexture(SDL_Texture* texture)

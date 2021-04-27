@@ -25,7 +25,7 @@ public:
 	
 	std::map<const char*, Animation> animations;
 
-	std::map<const char*, Animation> animationsRight;
+	SDL_RendererFlip spriteFlip = SDL_FLIP_NONE;
 	
 	SpriteComponent() = default;
 	SpriteComponent(const char* path)
@@ -39,6 +39,7 @@ public:
 		
 		Animation idle = Animation(0, 1, 500);
 		//Animation idle = Animation(0, 0, 100);
+		//Animation walk = Animation(2, 5, 75);
 		Animation walk = Animation(2, 5, 75);
 
 		
@@ -91,7 +92,7 @@ public:
 	
 	void render() override
 	{
-		TextureManager::Draw(texture, srcRect, destRect);
+		TextureManager::Draw(texture, srcRect, destRect, spriteFlip);
 	}
 
 	void setTex(const char* path) {
