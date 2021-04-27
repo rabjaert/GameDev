@@ -24,6 +24,8 @@ public:
 	int animIndex = 0;
 	
 	std::map<const char*, Animation> animations;
+
+	std::map<const char*, Animation> animationsRight;
 	
 	SpriteComponent() = default;
 	SpriteComponent(const char* path)
@@ -37,12 +39,17 @@ public:
 		
 		Animation idle = Animation(0, 1, 500);
 		//Animation idle = Animation(0, 0, 100);
-		Animation walk = Animation(2, 4, 75);
+		Animation walk = Animation(2, 5, 75);
+
+		
 
 		animations.emplace("Idle", idle);
 		animations.emplace("Walk", walk);
+
+		
 		
 		Play("Walk");
+	
 
 		setTex(path);
 	}
@@ -97,10 +104,6 @@ public:
 		animIndex = animations[animationName].index;
 		speed = animations[animationName].speed;
 	}
-
-
-
-
 
 };
 

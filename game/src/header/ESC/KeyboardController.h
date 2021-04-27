@@ -38,7 +38,6 @@ public:
 			sprite->Play("Walk");
 		}
 
-
 		if (state[SDL_SCANCODE_D]) {
 			transform->velocity.xPos = 1;
 			sprite->Play("Walk");

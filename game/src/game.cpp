@@ -54,7 +54,7 @@ void Game::init(const char* title, int width, int height)
 	//potion = new PlayerObject(renderer, 0, 0);
 	//potion->setTexture("res/textures/gui/gui_sheet.png");
 
-	newPlayer.addComponent<TransformComponent>(0,0, 45, 16, 0, 56, 2);
+	newPlayer.addComponent<TransformComponent>(0,0, 40, 16.5, 0, 56, 2);
 	newPlayer.addComponent<SpriteComponent>("res/textures/character/walk-run-reference.png", true);
 	newPlayer.addComponent<KeyboardController>();
 	newPlayer.addComponent<ColliderComponent>("newPlayer");
