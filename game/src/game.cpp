@@ -60,7 +60,7 @@ void Game::init(const char* title, int width, int height)
 	newPlayer.addComponent<ColliderComponent>("newPlayer");
 
 	
-	wall2.addComponent<TransformComponent>(500, 300, 200, 50, 1);
+	wall2.addComponent<TransformComponent>(500, 300, 20, 30, 4);
 	wall2.addComponent<SpriteComponent>("res/textures/enemies/wolf.png");
 	wall2.addComponent<ColliderComponent>("wall2");
 
@@ -102,7 +102,7 @@ void Game::update()
 		newPlayer.getComponent<TransformComponent>().postition = playerPos;
 
 		std::cout << "Collision!" << std::endl;
-		newPlayer.getComponent<TransformComponent>().velocity * 1;
+		newPlayer.getComponent<TransformComponent>().velocity * 3;
 
 	}
 

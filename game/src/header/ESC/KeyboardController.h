@@ -27,21 +27,26 @@ public:
 		
 		transform->velocity.xPos = 0;
 		transform->velocity.yPos = 0;
+		sprite->walkUpwards = false;
+		sprite->walkDownwards = false;
 		sprite->Play("Idle");
 		sprite->spriteFlip = SDL_FLIP_NONE;
 	
 		
 		auto* state = SDL_GetKeyboardState(NULL);
 		if (state[SDL_SCANCODE_W]) {
+			sprite->walkUpwards = true;
 			transform->velocity.yPos = -1;
-			sprite->Play("Walk");
+			sprite->PlayUp("Walkup");
 		}
 		if (state[SDL_SCANCODE_A]) {
+			
 			transform->velocity.xPos = -1;
 			sprite->Play("Walk");
 			
 		}
 		if (state[SDL_SCANCODE_D]) {
+			
 			transform->velocity.xPos = 1;
 			sprite->Play("Walk");
 			sprite->spriteFlip = SDL_FLIP_HORIZONTAL;
@@ -50,8 +55,9 @@ public:
 		}
 
 		if (state[SDL_SCANCODE_S]) {
+			sprite->walkDownwards = true;
 			transform->velocity.yPos = 1;
-			sprite->Play("Walk");
+			sprite->PlayDown("Walkdown");
 		}
 	}
 

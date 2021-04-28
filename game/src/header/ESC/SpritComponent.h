@@ -19,11 +19,17 @@ private:
 	int frames = 0;
 	int speed = 100;
 
+	
+
+
 public:
 	
 	int animIndex = 0;
+	bool walkUpwards;
+	bool walkDownwards;
 	
 	std::map<const char*, Animation> animations;
+	
 
 	SDL_RendererFlip spriteFlip = SDL_FLIP_NONE;
 	
@@ -40,16 +46,20 @@ public:
 		Animation idle = Animation(0, 1, 500);
 		//Animation idle = Animation(0, 0, 100);
 		//Animation walk = Animation(2, 5, 75);
-		Animation walk = Animation(2, 5, 75);
-
+		Animation walk = Animation(2, 5, 100);
+		Animation walkUp = Animation(0, 5, 100);
+		Animation walkDown = Animation(1, 5, 100);
 		
 
 		animations.emplace("Idle", idle);
 		animations.emplace("Walk", walk);
-
+		animations.emplace("Walkup", walkUp);
+		animations.emplace("Walkdown", walkDown);
 		
 		
 		Play("Walk");
+		//PlayUp("Walkup");
+		//PlayDown("Walkdown");
 	
 
 		setTex(path);
@@ -80,15 +90,44 @@ public:
 			srcRect.x = srcRect.w * static_cast<int>((SDL_GetTicks() / speed) % frames);	
 		}
 		
-		//srcRect.x = transform->srcX;
-		srcRect.y = animIndex * transform->srcY;
-		
-		destRect.x = static_cast<int>(transform->postition.xPos);
-		destRect.y = static_cast<int>(transform->postition.yPos);
-		destRect.w = transform->width * transform->scale;
-		destRect.h = transform->height * transform->scale;
-		
+		if (walkUpwards == true) 
+		{
+
+			srcRect.y = animIndex * transform->srcY;
+				srcRect.h = transform->height;
+				
+
+				destRect.x = static_cast<int>(transform->postition.xPos);
+				destRect.y = static_cast<int>(transform->postition.yPos);
+				destRect.w = transform->width * transform->scale;
+				destRect.h = transform->height * transform->scale;
+				std::cout << "W" << std::endl;
+		}
+
+
+		if (walkDownwards == true)
+		{
+
+			srcRect.y = animIndex * transform->srcY - 40;
+			srcRect.h = transform->height - 8;
+
+			destRect.x = static_cast<int>(transform->postition.xPos);
+			destRect.y = static_cast<int>(transform->postition.yPos);
+			destRect.w = transform->width * transform->scale;
+			destRect.h = transform->height * transform->scale;
+			std::cout << "A" << std::endl;
+		}
+		else 
+		{
+			srcRect.y = animIndex * transform->srcY;
+			destRect.x = static_cast<int>(transform->postition.xPos);
+			destRect.y = static_cast<int>(transform->postition.yPos);
+			destRect.w = transform->width * transform->scale;
+			destRect.h = transform->height * transform->scale;
+		}
+
 	}
+
 	
 	void render() override
 	{
@@ -104,6 +143,17 @@ public:
 		frames = animations[animationName].frames;
 		animIndex = animations[animationName].index;
 		speed = animations[animationName].speed;
+	}
+
+	void PlayUp(const char* animationUp) {
+		frames = animations[animationUp].frames;
+		animIndex = animations[animationUp].index;
+		speed = animations[animationUp].speed;
+	}
+	void PlayDown(const char* animationDown) {
+		frames = animations[animationDown].frames;
+		animIndex = animations[animationDown].index;
+		speed = animations[animationDown].speed;
 	}
 
 };
